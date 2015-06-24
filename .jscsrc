@@ -1,0 +1,21 @@
+{
+	"validateIndentation": "\t",
+	"disallowSpacesInsideArrayBrackets": "all",
+	"disallowMultipleSpaces": true,
+	"disallowSpaceAfterObjectKeys": true,
+	"disallowSpacesInsideObjectBrackets": "all",
+	"disallowSpacesInsideParentheses": true,
+	"requireSpacesInNamedFunctionExpression": {
+		"beforeOpeningRoundBrace": true,
+		"beforeOpeningCurlyBrace": true
+	},
+	"requireSpacesInFunctionDeclaration": {
+		"beforeOpeningRoundBrace": true,
+		"beforeOpeningCurlyBrace": true
+	},
+	"requireSpacesInFunctionExpression": {
+		"beforeOpeningRoundBrace": true,
+		"beforeOpeningCurlyBrace": true
+	},
+	"requireSpacesInConditionalExpression": true
+}
