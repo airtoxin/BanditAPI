@@ -1,0 +1,25 @@
+{
+	"eqnull": true,
+	"evil": true,
+	"expr": true,
+	"maxdepth": 5,
+	"node": true,
+	"devel": true,
+	"unused": true,
+	"undef": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	"nonew": true,
+	"quotmark": "single",
+	"trailing": true,
+	"globals": {
+		"describe": true,
+		"it": true,
+		"before": true,
+		"beforeEach": true,
+		"after": true,
+		"afterEach": true
+	}
+}
+
