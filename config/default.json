@@ -1,0 +1,15 @@
+{
+	"app": {
+		"port": 13579
+	},
+	"mongo": {
+		"name": "bandit_api",
+		"rs_name": "",
+		"servers": [{
+			"host": "localhost",
+			"port": 27017,
+			"user": "",
+			"pswd": ""
+		}]
+	}
+}
