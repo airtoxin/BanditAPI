@@ -8,6 +8,13 @@ var findById = function (modelId, callback) {
 	});
 };
 
+var remove = function (modelId, callback) {
+	Model.remove({_id: modelId}, function (error) {
+		callback(error);
+	});
+};
+
 module.exports = {
-	findById: findById
+	findById: findById,
+	remove: remove
 };
