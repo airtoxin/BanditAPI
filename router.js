@@ -8,5 +8,6 @@ router.post('/create', api.create);
 router.get('/status', api.status);
 router.delete('/delete', api.delete);
 router.get('/get', api.get);
+router.post('/insert', api.insert);
 
 module.exports = router;

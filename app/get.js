@@ -9,7 +9,7 @@ module.exports = {
 	main: function (modelId, callback) {
 		async.waterfall([
 			function (next) {
-				if (!_.isString(modelId) || modelId.length !== 24) return next('invalid model_id');
+				if (!_.isString(modelId) || modelId.length !== 24) return next(new Error('invalid model_id'));
 				next();
 			},
 			function (next) {

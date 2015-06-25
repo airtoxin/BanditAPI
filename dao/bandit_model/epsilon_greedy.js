@@ -14,6 +14,19 @@ var create = function (numArms, epsilon, callback) {
 	});
 };
 
+var updateArmWithPresumption = function (modelId, armId, newPresumption, callback) {
+	Model.update({
+		_id: modelId,
+		'arms._id': armId
+	}, {
+		$inc: {'settings.counts': 1},
+		$set: {'arms.$.presumption': newPresumption}
+	}, function (error) {
+		callback(error);
+	});
+};
+
 module.exports = {
-	create: create
+	create: create,
+	updateArmWithPresumption: updateArmWithPresumption
 };

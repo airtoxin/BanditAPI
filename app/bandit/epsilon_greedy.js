@@ -40,6 +40,18 @@ var get = function (model, callback) {
 	});
 };
 
+var insert = function (model, armId, reward, callback) {
+	var N = model.settings.counts;
+	var P = _.find(model.arms, function (arm) {
+		return '' + arm._id === armId;
+	}).presumption;
+
+	var newPresumption = ((N - 1) / N * P) + reward / N;
+	epsilonGreedyDao.updateArmWithPresumption(model._id, armId, newPresumption, function (error) {
+		callback(error);
+	});
+};
+
 var _getArmId = function (model) {
 	var arms = model.arms;
 	var epsilon = model.settings.epsilon;
@@ -58,5 +70,6 @@ var _getArmId = function (model) {
 
 module.exports = {
 	create: create,
-	get: get
+	get: get,
+	insert: insert
 };
