@@ -5,7 +5,7 @@ require('mongoose-schema-extend');
 
 var EpsilonGreedy = BanditModel.extend({
 	arms: [{
-		presumption: {type: Number, default: 0},
+		value: {type: Number, default: 0},
 		counts: {type: Number, default: 0}
 	}],
 	settings: {

@@ -22,7 +22,7 @@ var create = function (numArms, settings, callback) {
 		var arms = _.map(model.arms, function (arm) {
 			return {
 				arm_id: arm._id,
-				presumption: arm.presumption
+				value: arm.value
 			};
 		});
 		callback(error, {
@@ -46,9 +46,9 @@ var insert = function (model, armId, reward, callback) {
 		return '' + arm._id === armId;
 	});
 	var counts = ++arm.counts;
-	var presumption = ((counts - 1) / counts) * arm.presumption + reward / counts;
+	var value = ((counts - 1) / counts) * arm.value + reward / counts;
 
-	epsilonGreedyDao.updateArmWithPresumption(model._id, armId, presumption, function (error) {
+	epsilonGreedyDao.updateArmWithValue(model._id, armId, value, function (error) {
 		callback(error);
 	});
 };
@@ -63,8 +63,8 @@ var _getArmId = function (model) {
 		arm = _.sample(arms);
 	} else {
 		arm = _.reduce(arms, function (current, arm) {
-			return arm.presumption > current.presumption ? arm : current;
-		}, {presumption: Number.NEGATIVE_INFINITY});
+			return arm.value > current.value ? arm : current;
+		}, {value: Number.NEGATIVE_INFINITY});
 	}
 	return arm._id;
 };

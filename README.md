@@ -55,23 +55,23 @@ Response body contains created model. Your application must coordinate arm_ids a
   "arms": [
     {
       "arm_id": "558cbb435bcebb1bd7ccfdbb",
-      "presumption": 0
+      "value": 0
     },
     {
       "arm_id": "558cbb435bcebb1bd7ccfdba",
-      "presumption": 0
+      "value": 0
     },
     {
       "arm_id": "558cbb435bcebb1bd7ccfdb9",
-      "presumption": 0
+      "value": 0
     },
     {
       "arm_id": "558cbb435bcebb1bd7ccfdb8",
-      "presumption": 0
+      "value": 0
     },
     {
       "arm_id": "558cbb435bcebb1bd7ccfdb7",
-      "presumption": 0
+      "value": 0
     }
   ],
   "settings": {
@@ -106,23 +106,23 @@ It is same format of create's response.
   "arms": [
     {
       "arm_id": "558bae466b1296aa733176fb",
-      "presumption": 0
+      "value": 0
     },
     {
       "arm_id": "558bae466b1296aa733176fa",
-      "presumption": 0
+      "value": 0
     },
     {
       "arm_id": "558bae466b1296aa733176f9",
-      "presumption": 0
+      "value": 0
     },
     {
       "arm_id": "558bae466b1296aa733176f8",
-      "presumption": 0
+      "value": 0
     },
     {
       "arm_id": "558bae466b1296aa733176f7",
-      "presumption": 2.25
+      "value": 2.25
     }
   ],
   "settings": {

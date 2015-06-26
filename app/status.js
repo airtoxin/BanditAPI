@@ -21,7 +21,7 @@ module.exports = {
 			var arms = _.map(model.arms, function (arm) {
 				return {
 					arm_id: arm._id,
-					presumption: arm.presumption
+					value: arm.value
 				};
 			});
 			callback(null, {

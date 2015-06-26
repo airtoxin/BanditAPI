@@ -14,7 +14,7 @@ var create = function (numArms, epsilon, callback) {
 	});
 };
 
-var updateArmWithPresumption = function (modelId, armId, presumption, callback) {
+var updateArmWithValue = function (modelId, armId, value, callback) {
 	Model.update({
 		_id: modelId,
 		'arms._id': armId
@@ -23,7 +23,7 @@ var updateArmWithPresumption = function (modelId, armId, presumption, callback) 
 			'arms.$.counts': 1,
 			'settings.total_counts': 1
 		},
-		$set: {'arms.$.presumption': presumption}
+		$set: {'arms.$.value': value}
 	}, function (error) {
 		callback(error);
 	});
@@ -31,5 +31,5 @@ var updateArmWithPresumption = function (modelId, armId, presumption, callback) 
 
 module.exports = {
 	create: create,
-	updateArmWithPresumption: updateArmWithPresumption
+	updateArmWithValue: updateArmWithValue
 };
