@@ -6,7 +6,7 @@ Logics are from [Bandit Algorithms for Website Optimization](http://shop.oreilly
 ## Supported Models
 
 + epsilon-greedy
-+ softmax (TODO)
++ softmax
 + ucb1 (TODO)
 
 ## Runs API
