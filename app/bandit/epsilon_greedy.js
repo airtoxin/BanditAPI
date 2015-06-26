@@ -29,7 +29,7 @@ var create = function (numArms, settings, callback) {
 			algorithm: model.algorithm,
 			model_id: model._id,
 			arms: arms,
-			settings: model.settings
+			settings: {epsilon: model.settings.epsilon}
 		});
 	});
 };

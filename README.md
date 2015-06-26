@@ -53,32 +53,31 @@ Response body contains created model. Your application must coordinate arm_ids a
 ```
 {
   "algorithm": "EpsilonGreedy",
-  "model_id": "558cbb435bcebb1bd7ccfdb6",
+  "model_id": "558d81548bacc82746f2ca6a",
   "arms": [
     {
-      "arm_id": "558cbb435bcebb1bd7ccfdbb",
+      "arm_id": "558d81548bacc82746f2ca6f",
       "value": 0
     },
     {
-      "arm_id": "558cbb435bcebb1bd7ccfdba",
+      "arm_id": "558d81548bacc82746f2ca6e",
       "value": 0
     },
     {
-      "arm_id": "558cbb435bcebb1bd7ccfdb9",
+      "arm_id": "558d81548bacc82746f2ca6d",
       "value": 0
     },
     {
-      "arm_id": "558cbb435bcebb1bd7ccfdb8",
+      "arm_id": "558d81548bacc82746f2ca6c",
       "value": 0
     },
     {
-      "arm_id": "558cbb435bcebb1bd7ccfdb7",
+      "arm_id": "558d81548bacc82746f2ca6b",
       "value": 0
     }
   ],
   "settings": {
-    "epsilon": 0.8,
-    "counts": 1
+    "epsilon": 0.4
   }
 }
 ```
@@ -101,35 +100,34 @@ It is same format of create's response.
 
 ```
 {
-  "model_id": "558bae466b1296aa733176f6",
+  "model_id": "558d81548bacc82746f2ca6a",
   "algorithm": "EpsilonGreedy",
-  "created": "2015-06-25T07:31:18.482Z",
-  "last_updated": "2015-06-25T07:31:18.483Z",
+  "created": "2015-06-26T16:44:04.057Z",
+  "last_updated": "2015-06-26T16:44:04.058Z",
   "arms": [
     {
-      "arm_id": "558bae466b1296aa733176fb",
+      "arm_id": "558d81548bacc82746f2ca6f",
       "value": 0
     },
     {
-      "arm_id": "558bae466b1296aa733176fa",
-      "value": 0
+      "arm_id": "558d81548bacc82746f2ca6e",
+      "value": 1.388
     },
     {
-      "arm_id": "558bae466b1296aa733176f9",
-      "value": 0
+      "arm_id": "558d81548bacc82746f2ca6d",
+      "value": 1
     },
     {
-      "arm_id": "558bae466b1296aa733176f8",
-      "value": 0
+      "arm_id": "558d81548bacc82746f2ca6c",
+      "value": 3
     },
     {
-      "arm_id": "558bae466b1296aa733176f7",
+      "arm_id": "558d81548bacc82746f2ca6b",
       "value": 2.25
     }
   ],
   "settings": {
-    "epsilon": 0.8,
-    "counts": 9
+    "epsilon": 0.4
   }
 }
 ```

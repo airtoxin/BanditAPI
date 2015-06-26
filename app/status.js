@@ -24,6 +24,7 @@ module.exports = {
 					value: arm.value
 				};
 			});
+			delete model.settings.total_counts;
 			callback(null, {
 				model_id: model._id,
 				algorithm: model.algorithm,

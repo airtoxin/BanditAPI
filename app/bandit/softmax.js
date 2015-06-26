@@ -22,14 +22,14 @@ var create = function (numArms, settings, callback) {
 		var arms = _.map(model.arms, function (arm) {
 			return {
 				arm_id: arm._id,
-				presumption: arm.presumption
+				value: arm.value
 			};
 		});
 		callback(error, {
 			algorithm: model.algorithm,
 			model_id: model._id,
 			arms: arms,
-			settings: model.settings
+			settings: {tau: model.settings.tau}
 		});
 	});
 };
