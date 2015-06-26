@@ -17,13 +17,14 @@ var create = function (numArms, settings, callback) {
 			});
 		}
 	], function (error, model) {
+		if (error) return callback(error, {});
+
 		var arms = _.map(model.arms, function (arm) {
 			return {
 				arm_id: arm._id,
 				presumption: arm.presumption
 			};
 		});
-
 		callback(error, {
 			algorithm: model.algorithm,
 			model_id: model._id,
@@ -41,13 +42,13 @@ var get = function (model, callback) {
 };
 
 var insert = function (model, armId, reward, callback) {
-	var N = model.settings.counts;
-	var P = _.find(model.arms, function (arm) {
+	var arm = _.find(model.arms, function (arm) {
 		return '' + arm._id === armId;
-	}).presumption;
+	});
+	var counts = ++arm.counts;
+	var presumption = ((counts - 1) / counts) * arm.presumption + reward / counts;
 
-	var newPresumption = ((N - 1) / N * P) + reward / N;
-	epsilonGreedyDao.updateArmWithPresumption(model._id, armId, newPresumption, function (error) {
+	epsilonGreedyDao.updateArmWithPresumption(model._id, armId, presumption, function (error) {
 		callback(error);
 	});
 };
