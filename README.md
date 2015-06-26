@@ -41,8 +41,10 @@ Creates new bandit model.
 ##### request parameters
 
 + algorithm{string}: choose bandit algorithm name `epsilon_greedy`, `softmax`, `ucb1`
-+ num_arms{number}: options count (1...100)
++ num_arms{number}: options count (1<=num_arms<=100)
 + settings{object}: algorithm depended settings
+  + settings.epsilon{number}: epsilon-greedy only. (0<=epsilon<=1)
+  + settings.tau{number}: softmax only. (0<=tau)
 
 ##### response
 
