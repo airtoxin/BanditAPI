@@ -41,7 +41,8 @@ Creates new bandit model.
 ##### request parameters
 
 + algorithm{string}: choose bandit algorithm name `epsilon_greedy`, `softmax`, `ucb1`
-+ num_arms{number}: options count (1<=num_arms<=100)
++ arm_names{string[]}: name of arms. either this `arm_names` or `num_arms` required.
++ num_arms{number}: options count. either this `num_arms` or `arm_names` required. (1<=num_arms<=100)
 + settings{object}: algorithm depended settings
   + settings.epsilon{number}: epsilon-greedy only. (0<=epsilon<=1)
   + settings.tau{number}: softmax only. (0<=tau)
@@ -56,23 +57,13 @@ Response body contains created model. Your application must coordinate arm_ids a
   "model_id": "558d81548bacc82746f2ca6a",
   "arms": [
     {
+      "name": "alice",
       "arm_id": "558d81548bacc82746f2ca6f",
       "value": 0
     },
     {
+      "name": "bob",
       "arm_id": "558d81548bacc82746f2ca6e",
-      "value": 0
-    },
-    {
-      "arm_id": "558d81548bacc82746f2ca6d",
-      "value": 0
-    },
-    {
-      "arm_id": "558d81548bacc82746f2ca6c",
-      "value": 0
-    },
-    {
-      "arm_id": "558d81548bacc82746f2ca6b",
       "value": 0
     }
   ],
@@ -83,6 +74,8 @@ Response body contains created model. Your application must coordinate arm_ids a
 ```
 
 ##### example
+
+`$ curl -H "Content-type: application/json" -X POST -d '{"algorithm": "epsilon_greedy","arm_names":["alice", "bob"],"settings":{"epsilon":0.8}}' localhost:13579/create`
 
 `$ curl -H "Content-type: application/json" -X POST -d '{"algorithm": "epsilon_greedy","num_arms":5,"settings":{"epsilon":0.8}}' localhost:13579/create`
 
@@ -104,24 +97,14 @@ It is same format of create's response.
   "algorithm": "EpsilonGreedy",
   "arms": [
     {
+      "name": "alice",
       "arm_id": "558d81548bacc82746f2ca6f",
       "value": 0
     },
     {
+      "name": "bob",
       "arm_id": "558d81548bacc82746f2ca6e",
       "value": 1.388
-    },
-    {
-      "arm_id": "558d81548bacc82746f2ca6d",
-      "value": 1
-    },
-    {
-      "arm_id": "558d81548bacc82746f2ca6c",
-      "value": 3
-    },
-    {
-      "arm_id": "558d81548bacc82746f2ca6b",
-      "value": 2.25
     }
   ],
   "settings": {
@@ -146,7 +129,8 @@ Get arm's id that your application should test.
 
 ```
 {
-  "arm_id": "558bae466b1296aa733176f7"
+  "name": "alice",
+  "arm_id": "558d81548bacc82746f2ca6f"
 }
 
 ```
