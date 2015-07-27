@@ -2,7 +2,8 @@ var app = require('../app/get');
 var of = new (require('object-formatter'))('@', null);
 
 var schema = {
-	arm_id: '@_id'
+	arm_id: '@_id',
+	name: '@name=undefined'
 };
 
 module.exports = function (req, res) {
