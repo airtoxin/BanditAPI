@@ -102,8 +102,6 @@ It is same format of create's response.
 {
   "model_id": "558d81548bacc82746f2ca6a",
   "algorithm": "EpsilonGreedy",
-  "created": "2015-06-26T16:44:04.057Z",
-  "last_updated": "2015-06-26T16:44:04.058Z",
   "arms": [
     {
       "arm_id": "558d81548bacc82746f2ca6f",

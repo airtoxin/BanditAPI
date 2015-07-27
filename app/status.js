@@ -18,22 +18,7 @@ module.exports = {
 		], function (error, model) {
 			if (error) return callback(error, {});
 
-			var arms = _.map(model.arms, function (arm) {
-				return {
-					arm_id: arm._id,
-					value: arm.value
-				};
-			});
-			delete model.settings.total_counts;
-			callback(null, {
-				model_id: model._id,
-				algorithm: model.algorithm,
-				created: model.created,
-				last_updated: model.updated,
-				update_counts: model.count,
-				arms: arms,
-				settings: model.settings
-			});
+			callback(null, model);
 		});
 	}
 };

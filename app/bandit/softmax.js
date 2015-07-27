@@ -19,18 +19,7 @@ var create = function (numArms, settings, callback) {
 	], function (error, model) {
 		if (error) return callback(error, {});
 
-		var arms = _.map(model.arms, function (arm) {
-			return {
-				arm_id: arm._id,
-				value: arm.value
-			};
-		});
-		callback(error, {
-			algorithm: model.algorithm,
-			model_id: model._id,
-			arms: arms,
-			settings: {tau: model.settings.tau}
-		});
+		callback(error, model);
 	});
 };
 
@@ -45,9 +34,7 @@ var get = function (model, callback) {
 			best : {arm: arm, prob: prob};
 	}, {arm:{}, prob: Math.NEGATIVE_INFINITY}).arm;
 
-	callback(null, {
-		arm_id: arm._id
-	});
+	callback(null, arm);
 };
 
 var insert = function (model, armId, reward, callback) {

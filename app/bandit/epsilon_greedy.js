@@ -19,26 +19,13 @@ var create = function (numArms, settings, callback) {
 	], function (error, model) {
 		if (error) return callback(error, {});
 
-		var arms = _.map(model.arms, function (arm) {
-			return {
-				arm_id: arm._id,
-				value: arm.value
-			};
-		});
-		callback(error, {
-			algorithm: model.algorithm,
-			model_id: model._id,
-			arms: arms,
-			settings: {epsilon: model.settings.epsilon}
-		});
+		callback(error, model);
 	});
 };
 
 var get = function (model, callback) {
-	var armId = _getArmId(model);
-	callback(null, {
-		arm_id: armId
-	});
+	var arm = _getArm(model);
+	callback(null, arm);
 };
 
 var insert = function (model, armId, reward, callback) {
@@ -53,7 +40,7 @@ var insert = function (model, armId, reward, callback) {
 	});
 };
 
-var _getArmId = function (model) {
+var _getArm = function (model) {
 	var arms = model.arms;
 	var epsilon = model.settings.epsilon;
 	var isExploration = Math.random() < epsilon;
@@ -66,7 +53,7 @@ var _getArmId = function (model) {
 			return arm.value > current.value ? arm : current;
 		}, {value: Number.NEGATIVE_INFINITY});
 	}
-	return arm._id;
+	return arm;
 };
 
 module.exports = {
