@@ -5,12 +5,13 @@ var schema = {
 	algorithm: '@algorithm',
 	model_id: '@_id',
 	arms: ['@arms', {
+		name: '@name=undefined',
 		arm_id: '@_id',
 		value: '@value'
 	}],
 	settings: {
-		epsilon: '@settings.epsilon',
-		tau: '@settings.tau'
+		epsilon: '@settings.epsilon=undefined',
+		tau: '@settings.tau=undefined'
 	}
 };
 

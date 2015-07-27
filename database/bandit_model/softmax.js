@@ -5,6 +5,7 @@ require('mongoose-schema-extend');
 
 var Softmax = BanditModel.extend({
 	arms: [{
+		name: {type: String},
 		value: {type: Number, default: 0},
 		counts: {type: Number, default: 0}
 	}],

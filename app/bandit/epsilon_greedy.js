@@ -3,7 +3,7 @@ var async = require('neo-async');
 
 var epsilonGreedyDao = require('../../dao/bandit_model/epsilon_greedy');
 
-var create = function (numArms, settings, callback) {
+var create = function (armNames, numArms, settings, callback) {
 	var epsilon = settings.epsilon;
 
 	async.waterfall([
@@ -12,10 +12,16 @@ var create = function (numArms, settings, callback) {
 			next();
 		},
 		function (next) {
-			epsilonGreedyDao.create(numArms, epsilon, function (error, model) {
-				next(error, model);
-			});
-		}
+			if (armNames) {
+				epsilonGreedyDao.createByArmNames(armNames, epsilon, function (error, model) {
+					next(error, model);
+				});
+			} else {
+				epsilonGreedyDao.createByNumArms(numArms, epsilon, function (error, model) {
+					next(error, model);
+				});
+			}
+		},
 	], function (error, model) {
 		if (error) return callback(error, {});
 

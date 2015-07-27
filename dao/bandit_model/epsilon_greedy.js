@@ -1,7 +1,24 @@
 var _ = require('lodash');
 var Model = require('../../database')('bandit_model/epsilon_greedy');
 
-var create = function (numArms, epsilon, callback) {
+var createByArmNames = function (armNames, epsilon, callback) {
+	var arms = _.map(armNames, function (armName) {
+		return {
+			name: armName
+		};
+	});
+	(new Model({
+		arms: arms,
+		settings: {
+			epsilon: epsilon
+		}
+	})).save(function (error, result) {
+		if (error) return callback(error, {});
+		callback(error, result.toObject());
+	});
+};
+
+var createByNumArms = function (numArms, epsilon, callback) {
 	var arms = _.map(_.range(numArms), function () {return {};});
 	(new Model({
 		arms: arms,
@@ -30,6 +47,7 @@ var updateArmWithValue = function (modelId, armId, value, callback) {
 };
 
 module.exports = {
-	create: create,
+	createByArmNames: createByArmNames,
+	createByNumArms: createByNumArms,
 	updateArmWithValue: updateArmWithValue
 };

@@ -3,7 +3,7 @@ var async = require('neo-async');
 
 var softmaxDao = require('../../dao/bandit_model/softmax');
 
-var create = function (numArms, settings, callback) {
+var create = function (armNames, numArms, settings, callback) {
 	var tau = settings.tau;
 
 	async.waterfall([
@@ -12,9 +12,15 @@ var create = function (numArms, settings, callback) {
 			next();
 		},
 		function (next) {
-			softmaxDao.create(numArms, tau, function (error, model) {
-				next(error, model);
-			});
+			if (armNames) {
+				softmaxDao.createByArmNames(armNames, tau, function (error, model) {
+					next(error, model);
+				});
+			} else {
+				softmaxDao.createByNumArms(numArms, tau, function (error, model) {
+					next(error, model);
+				});
+			}
 		}
 	], function (error, model) {
 		if (error) return callback(error, {});

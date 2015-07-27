@@ -1,7 +1,24 @@
 var _ = require('lodash');
 var Model = require('../../database')('bandit_model/softmax');
 
-var create = function (numArms, tau, callback) {
+var createByArmNames = function (armNames, tau, callback) {
+	var arms = _.map(armNames, function (armName) {
+		return {
+			name: armName
+		};
+	});
+	(new Model({
+		arms: arms,
+		settings: {
+			tau: tau
+		}
+	})).save(function (error, result) {
+		if (error) return callback(error, {});
+		callback(error, result.toObject());
+	});
+};
+
+var createByNumArms = function (numArms, tau, callback) {
 	var arms = _.map(_.range(numArms), function () {return {};});
 	(new Model({
 		arms: arms,
@@ -30,6 +47,7 @@ var updateArmWithValue = function (modelId, armId, value, callback) {
 };
 
 module.exports = {
-	create: create,
+	createByArmNames: createByArmNames,
+	createByNumArms: createByNumArms,
 	updateArmWithValue: updateArmWithValue
 };
