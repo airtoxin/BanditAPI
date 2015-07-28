@@ -27,7 +27,16 @@ var get = function (model, callback) {
 };
 
 var insert = function (model, armId, reward, callback) {
-	callback(null, {});
+	var arm = _.find(model.arms, function (arm) {
+		return '' + arm._id === armId;
+	});
+	var n = ++arm.counts;
+	var value = arm.value;
+
+	var newValue = ((n - 1) / n * value + (1 / n)) * reward;
+	ucb1Dao.updateArmWithValue(model._id, armId, newValue, function (error) {
+		callback(error);
+	});
 };
 
 module.exports = {
