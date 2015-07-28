@@ -7,7 +7,7 @@ Logics are from [Bandit Algorithms for Website Optimization](http://shop.oreilly
 
 + epsilon-greedy
 + softmax
-+ ucb1 (TODO)
++ ucb1
 
 ## Runs API
 
@@ -180,3 +180,10 @@ Empty response.
 ##### example
 
 `$ curl -H "Content-type: application/json" -X DELETE -d '{"model_id":"558bae466b1296aa733176f6"}' localhost:13579/delete`
+
+
+## TODOs
+
++ Add new algorithm: exp3
++ Add new api for arm maneuvering (add/delete/add name/update name)
++ Add request result field to response object
