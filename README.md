@@ -40,7 +40,7 @@ Creates new bandit model.
 
 ##### request parameters
 
-+ algorithm{string}: choose bandit algorithm name `epsilon_greedy`, `softmax`, `ucb1`
++ algorithm{string}: choose bandit algorithm name `epsilon_greedy`, `softmax`, `ucb_1`
 + arm_names{string[]}: name of arms. either this `arm_names` or `num_arms` required.
 + num_arms{number}: options count. either this `num_arms` or `arm_names` required. (1<=num_arms<=100)
 + settings{object}: algorithm depended settings
@@ -147,7 +147,7 @@ Insert a test result to your bandit model.
 
 + model_id{string}: your model's id returned from create api.
 + arm_id{string}: your application option's id returned from get api.
-+ reward{number}: test result. `ucb1` has a limitation `0 <= reward <= 1`.
++ reward{number}: test result. `ucb_1` has a limitation `0 <= reward <= 1`.
 
 ##### response
 

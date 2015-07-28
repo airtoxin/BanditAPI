@@ -20,6 +20,13 @@ module.exports = {
 				});
 			},
 			function (model, next) {
+				// algorithm specified validations
+				if (model.algorithm === 'Ucb1') {
+					if (reward < 0 || 1 < reward) return next(new Error('invalid reward'));
+				}
+				next(null, model);
+			},
+			function (model, next) {
 				try {
 					var algorithm = _.snakeCase(model.algorithm);
 					var bandit = Bandit[algorithm];

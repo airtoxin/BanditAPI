@@ -1,7 +1,7 @@
 var _ = require('lodash');
 var async = require('neo-async');
 
-var ucb1Dao = require('../../dao/bandit_model/ucb1');
+var ucb1Dao = require('../../dao/bandit_model/ucb_1');
 
 var create = function (armNames, numArms, settings, callback) {
 	async.waterfall([

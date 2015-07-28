@@ -1,5 +1,5 @@
 var _ = require('lodash');
-var Model = require('../../database')('bandit_model/ucb1');
+var Model = require('../../database')('bandit_model/ucb_1');
 
 var createByArmNames = function (armNames, callback) {
 	var arms = _.map(armNames, function (armName) {
