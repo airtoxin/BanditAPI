@@ -1,9 +1,9 @@
 var app = require('../app/get');
-var of = new (require('object-formatter'))('@', null);
+var of = new (require('object-formatter'))('@', undefined);
 
 var schema = {
 	arm_id: '@_id',
-	name: '@name=undefined'
+	name: '@name'
 };
 
 module.exports = function (req, res) {

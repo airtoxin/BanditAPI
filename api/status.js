@@ -1,17 +1,17 @@
 var app = require('../app/status');
-var of = new (require('object-formatter'))('@', null);
+var of = new (require('object-formatter'))('@', undefined);
 
 var schema = {
 	algorithm: '@algorithm',
 	model_id: '@_id',
 	arms: ['@arms', {
-		name: '@name=undefined',
+		name: '@name',
 		arm_id: '@_id',
 		value: '@value'
 	}],
 	settings: {
-		epsilon: '@settings.epsilon=undefined',
-		tau: '@settings.tau=undefined'
+		epsilon: '@settings.epsilon',
+		tau: '@settings.tau'
 	}
 };
 

@@ -1,5 +1,5 @@
 var app = require('../app/insert');
-var of = new (require('object-formatter'))('@', null);
+var of = new (require('object-formatter'))('@', undefined);
 
 var schema = {};
 
