@@ -40,12 +40,14 @@ Creates new bandit model.
 
 ##### request parameters
 
-+ algorithm{string}: choose bandit algorithm name `epsilon_greedy`, `softmax`, `ucb_1`
-+ arm_names{string[]}: name of arms. either this `arm_names` or `num_arms` required.
-+ num_arms{number}: options count. either this `num_arms` or `arm_names` required. (1<=num_arms<=100)
-+ settings{object}: algorithm depended settings
-  + settings.epsilon{number}: epsilon-greedy only. (0<=epsilon<=1)
-  + settings.tau{number}: softmax only. (0<=tau)
+| parameter        | type     | required                                  | description                                           |
+| ---              | ---      | ---                                       | ---                                                   |
+| algorithm        | string   | true                                      | algorithm name `epsilon_greedy`, `softmax` or `ucb_1` |
+| arm_names        | string[] | either `arm_names` or `num_arms` required | name of arm(s)                                        |
+| num_arms         | integer  | either `arm_names` or `num_arms` required | arm counts                                            |
+| settings         | object   |true                                       | algorithm depended settings                           |
+| settings.epsilon | number   | required in `epsilon_greedy`              | value of epsilon. (0<=epsilon<=1)                     |
+| settings.tau     | number   | required in `softmax`                     | tau parameter value(annealing templature) (0<=tau)    |
 
 ##### response
 
@@ -85,7 +87,9 @@ Get status of current bandit model.
 
 ##### request parameters
 
-+ model_id{string}: your model's id returned from create api.
+| parameter | type   | required | description                         |
+| ---       | ---    | ---      | ---                                 |
+| model_id  | string | true     | model's id returned from create api |
 
 ##### response
 
@@ -123,7 +127,9 @@ Get arm's id that your application should test.
 
 ##### request parameters
 
-+ model_id{string}: your model's id returned from create api.
+| parameter | type   | required | description                         |
+| ---       | ---    | ---      | ---                                 |
+| model_id  | string | true     | model's id returned from create api |
 
 ##### response
 
@@ -145,9 +151,11 @@ Insert a test result to your bandit model.
 
 ##### request parameters
 
-+ model_id{string}: your model's id returned from create api.
-+ arm_id{string}: your application option's id returned from get api.
-+ reward{number}: test result. `ucb_1` has a limitation `0 <= reward <= 1`.
+| parameter | type   | required | description                                                       |
+| ---       | ---    | ---      | ---                                                               |
+| model_id  | string | true     | model's id returned from create api                               |
+| arm_id    | string | true     | arm's id returned from get api                                    |
+| reward    | number | true     | testing result value. `ucb_1` has a limitation `0 <= reward <= 1` |
 
 ##### response
 
@@ -167,7 +175,9 @@ Delete your bandit test model.
 
 ##### request parameters
 
-+ model_id{string}: your model's id returned from create api.
+| parameter | type   | required | description                         |
+| ---       | ---    | ---      | ---                                 |
+| model_id  | string | true     | model's id returned from create api |
 
 ##### response
 
