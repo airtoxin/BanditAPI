@@ -413,4 +413,151 @@ describe('create.js', function () {
 			api(req, res);
 		});
 	});
+
+	describe('ucb_1', function () {
+		it('should create ucb_1 model with arm_names', function (done) {
+			var modelId = null;
+			var req = {
+				body: {
+					algorithm: 'ucb_1',
+					arm_names: ['alice', 'bob'],
+					settings: {}
+				}
+			};
+			var res = {
+				status: function (status) {
+					assert.strictEqual(status, 200);
+					return this;
+				},
+				json: function (result) {
+					modelId = result.model_id;
+					assert.strictEqual(result.algorithm, 'Ucb1');
+					assert.strictEqual(result.arms.length, 2);
+					assert.strictEqual(result.arms[0].name, 'alice');
+					assert.strictEqual(result.arms[1].name, 'bob');
+					Model.findById(modelId, function (error, result) {
+						assert.ok(!error);
+						assert.strictEqual('' + result._id, '' + modelId);
+						assert.strictEqual(result.algorithm, 'Ucb1');
+						assert.strictEqual(result.arms.length, 2);
+						assert.strictEqual(result.arms[0].name, 'alice');
+						assert.strictEqual(result.arms[1].name, 'bob');
+						done();
+					});
+				}
+			};
+
+			api(req, res);
+
+			after(function (done) {
+				Model.remove({_id: modelId}, done);
+			});
+		});
+
+		it('should create ucb_1 model with num_arms', function (done) {
+			var modelId = null;
+			var req = {
+				body: {
+					algorithm: 'ucb_1',
+					num_arms: 5,
+					settings: {}
+				}
+			};
+			var res = {
+				status: function (status) {
+					assert.strictEqual(status, 200);
+					return this;
+				},
+				json: function (result) {
+					modelId = result.model_id;
+					assert.strictEqual(result.algorithm, 'Ucb1');
+					assert.strictEqual(result.arms.length, 5);
+					Model.findById(modelId, function (error, result) {
+						assert.ok(!error);
+						assert.strictEqual('' + result._id, '' + modelId);
+						assert.strictEqual(result.algorithm, 'Ucb1');
+						assert.strictEqual(result.arms.length, 5);
+						done();
+					});
+				}
+			};
+
+			api(req, res);
+
+			after(function (done) {
+				Model.remove({_id: modelId}, done);
+			});
+		});
+
+		it('should return error when algorithm is invalid', function (done) {
+			var req = {
+				body: {
+					algorithm: 'aaaaaaaaaa',
+					arm_names: ['alice', 'bob'],
+					settings: {}
+				}
+			};
+			var res = {
+				status: function (status) {
+					assert.strictEqual(status, 400);
+					return this;
+				},
+				json: function (result) {
+					assert.strictEqual(result.algorithm, undefined);
+					assert.strictEqual(result.model_id, undefined);
+					assert.strictEqual(result.arms, undefined);
+					done();
+				}
+			};
+
+			api(req, res);
+		});
+
+		it('should return error when arm data is empty', function (done) {
+			var req = {
+				body: {
+					algorithm: 'ucb_1',
+					settings: {}
+				}
+			};
+			var res = {
+				status: function (status) {
+					assert.strictEqual(status, 400);
+					return this;
+				},
+				json: function (result) {
+					assert.strictEqual(result.algorithm, undefined);
+					assert.strictEqual(result.model_id, undefined);
+					assert.strictEqual(result.arms, undefined);
+					done();
+				}
+			};
+
+			api(req, res);
+		});
+
+		it('should return error when num_arms is too big', function (done) {
+			var req = {
+				body: {
+					algorithm: 'ucb_1',
+					num_arms: 10182988924,
+					settings: {}
+				}
+			};
+			var res = {
+				status: function (status) {
+					assert.strictEqual(status, 400);
+					return this;
+				},
+				json: function (result) {
+					assert.strictEqual(result.algorithm, undefined);
+					assert.strictEqual(result.model_id, undefined);
+					assert.strictEqual(result.arms, undefined);
+					done();
+				}
+			};
+
+			api(req, res);
+		});
+	});
 });
