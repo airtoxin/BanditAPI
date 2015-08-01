@@ -4,7 +4,7 @@
   "description": "bandit test support api",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive test"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "gulp-nodemon": "^2.0.3",
     "jshint-stylish": "^2.0.1",
     "lodash": "^3.9.3",
+    "mocha": "^2.2.5",
     "mongoose": "^4.0.6",
     "mongoose-schema-extend": "^0.1.7",
     "neo-async": "^1.2.1",

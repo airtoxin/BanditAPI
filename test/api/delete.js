@@ -1,7 +1,6 @@
 var path = require('path');
 var root = path.join(__dirname, '..', '..');
 var assert = require('assert');
-var async = require('neo-async');
 var api = require(path.join(root, 'api', 'delete'));
 var Model = require(path.join(root, 'database'))('bandit_model/epsilon_greedy');
 
@@ -14,7 +13,7 @@ describe('delete.js', function () {
 				arms: [{}, {}],
 				settings: {epsilon: 0.5}
 			})).save(function (error, result) {
-				assert.ok(!error)
+				assert.ok(!error);
 				assert.ok(result);
 				modelId = '' + result._id;
 
