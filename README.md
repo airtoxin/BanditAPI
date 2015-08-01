@@ -1,4 +1,4 @@
-# BanditAPI
+# BanditAPI [![Build Status](https://travis-ci.org/airtoxin/BanditAPI.svg)](https://travis-ci.org/airtoxin/BanditAPI)
 Bandit test support api.
 
 Logics are from [Bandit Algorithms for Website Optimization](http://shop.oreilly.com/product/0636920027393.do)
