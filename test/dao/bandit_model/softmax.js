@@ -52,7 +52,7 @@ describe('softmax.js', function () {
 		});
 		it('should return error when tau is undefined', function (done) {
 			var armNames = ['alice', 'bob'];
-			var tau = undefined;
+			var tau;
 			dao.createByArmNames(armNames, tau, function (error, result) {
 				assert.ok(error);
 				assert.deepEqual(result, {});
@@ -94,7 +94,7 @@ describe('softmax.js', function () {
 		});
 		it('should return error when tau is undefined', function (done) {
 			var numArms = 10;
-			var tau = undefined;
+			var tau;
 			dao.createByNumArms(numArms, tau, function (error, result) {
 				assert.ok(error);
 				assert.deepEqual(result, {});

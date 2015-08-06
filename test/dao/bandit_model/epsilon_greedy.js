@@ -52,7 +52,7 @@ describe('epsilon_greedy.js', function () {
 		});
 		it('should return error when epsilon is undefined', function (done) {
 			var armNames = ['alice', 'bob'];
-			var epsilon = undefined;
+			var epsilon;
 			dao.createByArmNames(armNames, epsilon, function (error, result) {
 				assert.ok(error);
 				assert.deepEqual(result, {});
@@ -94,7 +94,7 @@ describe('epsilon_greedy.js', function () {
 		});
 		it('should return error when epsilon is undefined', function (done) {
 			var numArms = 10;
-			var epsilon = undefined;
+			var epsilon;
 			dao.createByNumArms(numArms, epsilon, function (error, result) {
 				assert.ok(error);
 				assert.deepEqual(result, {});
