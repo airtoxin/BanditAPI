@@ -4,7 +4,8 @@
   "description": "bandit test support api",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --recursive test"
+    "start": "gulp server",
+    "test": "mocha --recursive test && gulp format && gulp lint"
   },
   "repository": {
     "type": "git",
