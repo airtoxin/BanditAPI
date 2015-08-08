@@ -20,6 +20,7 @@ module.exports = {
 				});
 			},
 			function (model, next) {
+				if (!model) return next(new Error('model not found'));
 				// algorithm specified validations
 				if (model.algorithm === 'Ucb1') {
 					if (reward < 0 || 1 < reward) return next(new Error('invalid reward'));
