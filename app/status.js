@@ -17,6 +17,7 @@ module.exports = {
 			}
 		], function (error, model) {
 			if (error) return callback(error, {});
+			if (!model) return callback(new Error('model not found'), {});
 
 			callback(null, model);
 		});
