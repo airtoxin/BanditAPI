@@ -306,9 +306,8 @@ describe('epsilon_greedy.js', function () {
 				id = '' + document._id;
 				var model = document;
 				var armId = '' + document.arms[0]._id;
-				var reward = 10
 
-				bandit.insert(model, armId, reward, function (error) {
+				bandit.insert(model, armId, 10, function (error) {
 					assert.ok(!error);
 
 					Model.findById(id, function (error, document) {
@@ -317,11 +316,33 @@ describe('epsilon_greedy.js', function () {
 
 						assert.strictEqual(document.algorithm, 'EpsilonGreedy');
 						assert.strictEqual(document.arms.length, 1);
-						assert.strictEqual(document.arms[0].value, reward);
+						assert.strictEqual(document.arms[0].value, 10);
 						assert.strictEqual(document.arms[0].counts, 1);
 						assert.strictEqual(document.settings.epsilon, 0.5);
 
-						done();
+						Model.findById(id, function (error, document) {
+							assert.ok(!error);
+							assert.ok(document);
+
+							model = document;
+							armId = '' + document.arms[0]._id;
+							bandit.insert(model, armId, 0, function (error) {
+								assert.ok(!error);
+
+								Model.findById(id, function (error, document) {
+									assert.ok(!error);
+									assert.ok(document);
+
+									assert.strictEqual(document.algorithm, 'EpsilonGreedy');
+									assert.strictEqual(document.arms.length, 1);
+									assert.strictEqual(document.arms[0].value, 5);
+									assert.strictEqual(document.arms[0].counts, 2);
+									assert.strictEqual(document.settings.epsilon, 0.5);
+								});
+							});
+
+							done();
+						});
 					});
 				});
 			});
