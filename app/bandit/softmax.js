@@ -38,7 +38,7 @@ var get = function (model, callback) {
 		var prob = Math.exp(arm.value / tau) / z;
 		return best.prob > prob ?
 			best : {arm: arm, prob: prob};
-	}, {arm:{}, prob: Math.NEGATIVE_INFINITY}).arm;
+	}, {arm:{}, prob: Number.NEGATIVE_INFINITY}).arm;
 
 	callback(null, arm);
 };
