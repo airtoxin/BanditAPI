@@ -2,11 +2,14 @@
   "name": "BanditAPI",
   "version": "0.1.0",
   "description": "bandit test support api",
-  "main": "app.js",
   "scripts": {
     "start": "gulp server",
     "test": "mocha --recursive test && gulp format && gulp lint"
   },
+  "bin": {
+    "bandit-cmd": "app.js"
+  },
+  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/airtoxin/BanditAPI.git"
