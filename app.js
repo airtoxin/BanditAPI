@@ -1,12 +1,13 @@
-#!/usr/bin/env node
-
 var express = require('express');
 var bodyParser = require('body-parser');
 var config = require('config');
 
-var app = express();
-var router = require('./router');
+module.exports = function () {
+	var app = express();
+	var router = require('./router');
 
-app.use(bodyParser.json());
-app.use('/', router);
-app.listen(config.app.port);
+	app.use(bodyParser.json());
+	app.use('/', router);
+	app.listen(config.app.port);
+	console.log('listening port: ' + config.app.port);
+};
