@@ -11,10 +11,24 @@ Logics are from [Bandit Algorithms for Website Optimization](http://shop.oreilly
 
 ## Runs API
 
-1. clone this repository
-2. edit `config/default.json` or put your `NODE_ENV` config file (e.g. `config/production.json`)
-3. `npm i`
-4. `gulp server` or `gulp`
+1. `$ npm install -g bandit-api`
+2. write your config (default is [here](config/default.json))
+3. `$ bandit-cmd -c /path/to/config` or runs as default `$ bandit-cmd`
+
+### Command-line options
+
+```
+$ bandit-cmd --help
+
+  Usage: bandit-cmd [options]
+
+  Options:
+
+    -h, --help           output usage information
+    -V, --version        output the version number
+    -c, --config <path>  set config path
+```
+
 
 ## Documents
 

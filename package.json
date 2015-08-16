@@ -1,5 +1,5 @@
 {
-  "name": "BanditAPI",
+  "name": "bandit-api",
   "version": "0.1.0",
   "description": "bandit test support api",
   "scripts": {
