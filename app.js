@@ -9,5 +9,5 @@ module.exports = function () {
 	app.use(bodyParser.json());
 	app.use('/', router);
 	app.listen(config.app.port);
-	console.log('listening port: ' + config.app.port);
+	console.log('app listening port: ' + config.app.port);
 };
