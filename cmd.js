@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
+var path = require('path');
 var _ = require('lodash');
 var options = require('commander');
-var config = require('config');
+
+var config = require(path.join(__dirname, 'config'));
 
 var packageFile = require('./package');
 var app = require('./app');

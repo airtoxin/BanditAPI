@@ -1,6 +1,7 @@
-var mongoose = require('mongoose');
-var config = require('config');
+var path = require('path');
 var _ = require('lodash');
+var mongoose = require('mongoose');
+var config = require(path.join(__dirname, '..', 'config'));
 
 var dsn = '';
 _.each(config.mongo.servers, function (server) {

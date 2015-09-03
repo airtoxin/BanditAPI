@@ -1,6 +1,7 @@
+var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
-var config = require('config');
+var config = require(path.join(__dirname, 'config'));
 
 module.exports = function () {
 	var app = express();
