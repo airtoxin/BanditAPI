@@ -5,7 +5,7 @@ var app = require(path.join(root, 'app', 'get'));
 
 var Model = require(path.join(root, 'database'))('bandit_model/epsilon_greedy');
 
-describe('get.js', function () {
+describe(__filename, function () {
 	describe('main', function () {
 		it('should return arm', function (done) {
 			var id = null;

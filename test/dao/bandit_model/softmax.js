@@ -4,7 +4,7 @@ var root = path.join(__dirname, '..', '..', '..');
 var dao = require(path.join(root, 'dao', 'bandit_model', 'softmax'));
 var Model = require(path.join(root, 'database'))('bandit_model/softmax');
 
-describe('softmax.js', function () {
+describe(__filename, function () {
 	describe('interface', function () {
 		it('should have functions', function (done) {
 			assert.strictEqual(Object.keys(dao).length, 3);

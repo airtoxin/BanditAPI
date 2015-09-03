@@ -4,7 +4,7 @@ var assert = require('assert');
 var api = require(path.join(root, 'api', 'delete'));
 var Model = require(path.join(root, 'database'))('bandit_model/epsilon_greedy');
 
-describe('delete.js', function () {
+describe(__filename, function () {
 	describe('main', function () {
 		it('should delete exact model', function (done) {
 			var modelId = null;

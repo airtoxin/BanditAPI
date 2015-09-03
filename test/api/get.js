@@ -4,7 +4,7 @@ var assert = require('assert');
 var api = require(path.join(root, 'api', 'get'));
 var Model = require(path.join(root, 'database'))('bandit_model/epsilon_greedy');
 
-describe('get.js', function () {
+describe(__filename, function () {
 	describe('main', function () {
 		it('should return best arm when epsilon is min', function (done) {
 			var id = null;

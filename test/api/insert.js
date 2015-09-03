@@ -4,7 +4,7 @@ var assert = require('assert');
 var api = require(path.join(root, 'api', 'insert'));
 var Model = require(path.join(root, 'database'))('bandit_model/epsilon_greedy');
 
-describe('insert.js', function () {
+describe(__filename, function () {
 	describe('main', function () {
 		it('should update arm value', function (done) {
 			var id = null;

@@ -5,7 +5,7 @@ var app = require(path.join(root, 'app', 'create'));
 
 var Model = require(path.join(root, 'database'))('bandit_model/epsilon_greedy');
 
-describe('create.js', function () {
+describe(__filename, function () {
 	describe('main', function () {
 		it('should create exact model with armNames', function (done) {
 			var id = null;

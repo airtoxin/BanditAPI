@@ -5,7 +5,7 @@ var app = require(path.join(root, 'app', 'delete'));
 
 var Model = require(path.join(root, 'database'))('bandit_model/epsilon_greedy');
 
-describe('delete.js', function () {
+describe(__filename, function () {
 	describe('main', function () {
 		it('should delete exact document', function (done) {
 			var id = null;

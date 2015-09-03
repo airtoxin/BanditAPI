@@ -4,7 +4,7 @@ var assert = require('assert');
 var api = require(path.join(root, 'api', 'create'));
 var Model = require(path.join(root, 'database'))('bandit_model/epsilon_greedy');
 
-describe('create.js', function () {
+describe(__filename, function () {
 	describe('epsilon_greedy', function () {
 		it('should create epsilon greedy model with arm_names', function (done) {
 			var modelId = null;
