@@ -290,7 +290,7 @@ describe('epsilon_greedy.js', function () {
 		});
 	});
 
-	describe('insert', function (done) {
+	describe('insert', function () {
 		it('should update arm value', function (done) {
 			var id = null;
 			(new Model({
