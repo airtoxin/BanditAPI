@@ -34,7 +34,7 @@
     "mongoose": "^4.0.6",
     "mongoose-schema-extend": "^0.1.7",
     "neo-async": "^1.2.1",
-    "object-formatter": "^1.0.1",
+    "object-formatter": "^1.0.2",
     "require-dir": "^0.3.0"
   }
 }
