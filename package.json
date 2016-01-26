@@ -30,7 +30,7 @@
     "gulp-nodemon": "^2.0.3",
     "jshint-stylish": "^2.0.1",
     "lodash": "^3.9.3",
-    "mocha": "^2.2.5",
+    "mocha": "^2.4.1",
     "mongoose": "^4.0.6",
     "mongoose-schema-extend": "^0.1.7",
     "neo-async": "^1.2.1",
