@@ -29,7 +29,7 @@
     "gulp-jshint": "^1.11.0",
     "gulp-nodemon": "^2.0.3",
     "jshint-stylish": "^2.0.1",
-    "lodash": "^3.9.3",
+    "lodash": "^4.2.1",
     "mocha": "^2.2.5",
     "mongoose": "^4.0.6",
     "mongoose-schema-extend": "^0.1.7",
